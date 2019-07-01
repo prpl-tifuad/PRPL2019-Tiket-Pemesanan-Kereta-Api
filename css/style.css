@@ -1,0 +1,55 @@
+body {
+    background: url(img/kereta9.png) top left no-repeat;
+    -webkit-background-size: 50% 50%;
+    -moz-background-size: 50% 50%;
+    -o-background-size: 95% 95%;
+    background-size: 20% 20%;
+
+    font-family: arial;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+#utama {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 12%;
+}
+
+#judul {
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    background-color: #339966;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom: 3px solid #336666;
+}
+
+#input {
+    background-color: #eaeaec;
+    padding: 20px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 0px;
+}
+
+.lg {
+    width: 240px
+}
+
+.btn {
+    background-color: #339966;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #336666;
+    cursor: pointer;
+}

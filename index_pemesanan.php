@@ -1,4 +1,12 @@
-<?php require "./header.php"; ?>
+<?php
+session_start();
+if (isset($_SESSION["login"])) {
+    header("location: login_registrasi.php");
+    exit;
+}
+
+require "./header.php";
+?>
 <div class="container">
 
     <center>
@@ -93,49 +101,49 @@
         <h5 class="title">Tambah Data</h5>
         <div class="row">
             <div class="input-field col s12">
-                <input id="id_pesan" type="text" name="id_pesan" class="validate" autofocus autocomplete="off">
+                <input id="id_pesan" type="text" name="id_pesan" class="validate" autocomplete="off">
                 <label for="id_pesan">No Customer</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="nama" type="text" class="validate" name="nama" autocomplete="off" autofocus>
+                <input id="nama" type="text" name="nama" class="validate" autocomplete="off">
                 <label for="nama">Nama</label>
             </div>
             <div class="input-field col s12">
-                <input id="atas_nama" type="text" class="validate" name="atas_nama" autocomplete="off">
+                <input id="atas_nama" type="text" name="atas_nama" class="validate" autocomplete="off">
                 <label for="atas_nama">Atas Nama</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="usia" type="number" class="validate" name="usia" autocomplete="off">
+                <input id="usia" type="number" name="usia" class="validate" autocomplete="off">
                 <label for="usia">Usia</label>
             </div>
             <div class="input-field col s12">
-                <input id="no_kk" type="number" class="validate" name="no_kk" autocomplete="off">
+                <input id="no_kk" type="number" name="no_kk" class="validate" autocomplete="off">
                 <label for="no_kk">No KK</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="no_hp" type="number" class="validate" name="no_hp" autocomplete="off">
+                <input id="no_hp" type="number" name="no_hp" class="validate" autocomplete="off">
                 <label for="no_hp">No HP</label>
             </div>
             <div class="input-field col s12">
-                <input id="tgl_pesan" type="date" class="validate" name="tgl_pesan" autocomplete="off">
+                <input id="tgl_pesan" type="date" name="tgl_pesan" class="validate" autocomplete="off">
                 <label for="tgl_pesan">Tanggal Pemesanan</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="jml_penumpang" type="number" class="validate" name="jml_penumpang" autocomplete="off">
+                <input id="jml_penumpang" type="number" name="jml_penumpang" class="validate" autocomplete="off">
                 <label for="jml_penumpang">Jumlah Penumpang</label>
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="submit" class="btn blue btn-submit " name="tambah_pesan">Tambah</button>
+        <button type="submit" class="btn blue btn-submit" name="tambah_pesan">Tambah</button>
     </div>
 </form>
 
@@ -297,60 +305,5 @@
         $("#sp-kembalian").text($("#kembalian").val())
 
         $("#modal-transaksi_pemesanan-preview").modal('open')
-    })
-
-    function mulaiHitung() {
-        Interval = setInterval("hitung()", 1);
-    }
-
-    function hitung() {
-        harga = parseInt(document.getElementById("harga").value);
-        jml_pesan = parseInt(document.getElementById("jml_pesan").value);
-        if (!isNaN(harga * jml_pesan)) tot_bayar = harga * jml_pesan
-        else tot_bayar = ""
-        document.getElementById("tot_bayar").value = tot_bayar;
-
-        diskon = 0;
-        persen = "";
-        if (tot_bayar > 5000) {
-            diskon = (10 / 100) * tot_bayar;
-            persen = "10%";
-        }
-        document.getElementById("diskon").value = persen + "-->" + diskon;
-        tot_setdiskon = tot_bayar - diskon;
-        document.getElementById("tot_setdiskon").value = tot_setdiskon;
-        bayar = parseInt(document.getElementById("bayar").value);
-        if (!isNaN(bayar - tot_bayar)) kembalian = bayar - tot_bayar
-        else kembalian = ""
-        document.getElementById("kembalian").value = kembalian;
-    }
-
-    function berhentiHitung() {
-        clearInterval(Interval);
-    }
-</script>
-
-<script>
-    $(document).ready(function() {
-        $(".modal").modal()
-    })
-
-    $(".btn-ubah_pemesanan").click(function() {
-        str = $(this).attr('value').split(',')
-        $(".id_pesan").val(str[0])
-        $(".nama").val(str[1])
-        $(".atas_nama").val(str[2])
-        $(".usia").val(str[3])
-        $(".no_kk").val(str[4])
-        $(".no_hp").val(str[5])
-        $(".tgl_pesan").val(str[6])
-        $(".jml_penumpang").val(str[7])
-        $(".title").html("Ubah_pemesanan Data")
-        $(".btn-submit").attr('name', 'ubah_pemesanan').html("Ubah")
-        $(".id_pesan").attr('readonly', 'dik')
-        $(".no_kk").attr('readonly', 'dik')
-        $(".tgl_pesan").attr('readonly', 'dik')
-        $("label").addClass('active')
-        $(".modal").modal('open')
     })
 </script>

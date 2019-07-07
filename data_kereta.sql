@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2019 at 12:35 PM
--- Server version: 10.1.39-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: Jul 07, 2019 at 06:55 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,8 +49,7 @@ INSERT INTO `kereta` (`kode`, `asal`, `tujuan`, `kelas`, `harga`, `tanggal`, `wa
 (4, 'jogja', 'jakarta', 'ekonomi', 900000, '2019-06-30', '17:05:00'),
 (5, 'surakarta', 'jogja', 'vip', 80000, '2019-07-10', '16:07:00'),
 (6, 'semarang', 'jakarta', 'ekonomi', 9000, '2019-07-11', '08:06:00'),
-(7, 'jakarta', 'jogja', 'ekonomis', 7000, '2019-07-09', '00:00:00'),
-(8, 'gunkid', 'cilacap', 'ekonomi', 1000, '2019-07-09', '11:01:00');
+(7, 'jakarta', 'jogja', 'ekonomis', 7000, '2019-07-09', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -107,15 +106,13 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`no`, `asal`, `tujuan`, `kelas`, `harga`, `jml_pesan`, `tot_bayar`, `diskon`, `tot_setdiskon`, `bayar`, `kembalian`) VALUES
-(2, 'jogja', 'jakarta', 'ekonomi', 20000, 2, 40000, 10, 36000, 55000, 15000),
-(3, 'yogyakarta', 'semarang', 'bisnis', 30000, 2, 60000, 10, 54000, 100000, 40000),
-(4, 'yogyakarta', 'surabaya', 'bisnis', 35000, 1, 35000, 10, 31500, 50000, 15000),
-(5, 'jogja', 'malang', 'ekonomi', 2000, 2, 4000, 0, 4000, 6000, 2000),
-(6, 'jakrata', 'jogja', 'ekonomi', 2000, 3, 6000, 10, 5400, 10000, 4000),
-(7, 'jj', 'jj', 'jj', 12, 11, 0, 0, 0, 32, 32),
-(8, 'jogja', '', '', 0, 0, 0, 0, 0, 0, 0),
-(9, 'jakarta', 'jogja', 'ekonomi', 8000, 2, 16000, 0, 14400, 50000, 34000),
-(10, 'jakarta', 'yogyakarta', 'ekonomi', 20000, 2, 40000, 0, 36000, 40000, 0);
+(1, 'jogja', 'jakarta', 'ekonomi', 900000, 1, 900000, 10, 810000, 1000000, 100000),
+(2, 'yogyakarta', 'semarang', 'bisnis', 30000, 1, 30000, 10, 27000, 50000, 20000),
+(3, 'Solo', 'Semarang', 'Eksklusif', 200000, 1, 200000, 10, 180000, 300000, 100000),
+(4, 'yogyakarta', 'semarang', 'bisnis', 30000, 2, 60000, 10, 54000, 70000, 10000),
+(5, 'Solo', 'Semarang', 'Eksklusif', 200000, 1, 200000, 10, 180000, 300000, 100000),
+(6, 'yogyakarta', 'semarang', 'bisnis', 30000, 1, 30000, 10, 27000, 50000, 20000),
+(7, 'Surakarta', 'yogyakarta', 'vip', 80000, 1, 80000, 0, 72000, 100000, 20000);
 
 -- --------------------------------------------------------
 
